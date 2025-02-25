@@ -10,17 +10,14 @@ public class CustomCharacterValidator extends CharacterValidator {
     private static final char MULTIPLY = '*';
     private static final char DIVIDE = '/';
 
-    @Override
     public boolean isSeparator(char current) {
         return current == COLON || current == COMMA;
     }
 
-    @Override
     public boolean isWhiteSpace(char current) {
         return current == SPACE;
     }
 
-    @Override
     public boolean isOperator(char current) {
         return current == PLUS || current == MINUS || current == MULTIPLY || current == DIVIDE;
     }

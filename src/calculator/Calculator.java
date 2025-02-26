@@ -11,7 +11,6 @@ public class Calculator {
 
     private final SeparatorParser separatorParser = new SeparatorParser();
     private final OperatorParser operatorParser = new OperatorParser();
-    private final AllOperator allOperator = new AllOperator();
 
     public CalculatorResult calculate(String input) {
         char operator = operatorParser.parserOperator(input);
@@ -20,7 +19,7 @@ public class Calculator {
 
         Operator checkOperator = allOperator.getOperator(operator);
 
-        for(int i = 1; i < numbers.size(); i++) {
+        for (int i = 1; i < numbers.size(); i++) {
             double currentNumber = numbers.get(i);
             result = checkOperator.result(result, currentNumber);
         }

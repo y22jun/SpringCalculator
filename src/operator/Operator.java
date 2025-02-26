@@ -21,11 +21,18 @@ public enum Operator {
     },
     DIVIDE {
         public double result(double a, double b) {
-            if(b == 0) {
+            if (b == 0) {
                 throw new IllegalArgumentException(DIVIDE_NOT_ZERO.getMessage());
             }
             return a / b;
         }
     };
+
     public abstract double result(double a, double b);
+
+    private final char saveOperator;
+
+    Operator(char saveOperator) {
+        this.saveOperator = saveOperator;
+    }
 }

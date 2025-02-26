@@ -15,6 +15,7 @@ public class Validator {
         SeparatorValidate(input);
         EndOperatorValidate(input);
         WhitespaceBeforeOperatorValidate(input);
+        NotWhitespaceInputValidate(input);
     }
 
     private void NotNullValidate(String input) {
@@ -59,6 +60,15 @@ public class Validator {
         char current = input.charAt(input.length() - 2);
         if(!customCharacterValidator.isWhiteSpace(current)) {
             throw new IllegalArgumentException(MISSING_WHITESPACE_BEFORE_OPERATOR.getMessage());
+        }
+    }
+
+    private void NotWhitespaceInputValidate(String input) {
+        for(int i = 0; i < input.length() - 2; i++) {
+            char current = input.charAt(i);
+            if(customCharacterValidator.isWhiteSpace(current)) {
+                throw new IllegalArgumentException(INPUT_WHITESPACE.getMessage());
+            }
         }
     }
 }

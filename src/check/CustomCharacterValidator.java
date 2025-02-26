@@ -21,4 +21,8 @@ public class CustomCharacterValidator extends CharacterValidator {
     public boolean isOperator(char current) {
         return current == PLUS || current == MINUS || current == MULTIPLY || current == DIVIDE;
     }
+
+    public boolean isMinus(char current) {
+        return current == MINUS;
+    }
 }

@@ -9,6 +9,7 @@ public class Validator {
     private final CustomCharacterValidator customCharacterValidator = new CustomCharacterValidator();
 
     public void AllValidate(String input) {
+        NotNullValidate(input);
         NotEmptyValidate(input);
         ConsecutiveSeparatorValidate(input);
         SeparatorValidate(input);

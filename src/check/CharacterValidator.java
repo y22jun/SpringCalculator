@@ -6,4 +6,6 @@ public abstract class CharacterValidator {
     public abstract boolean isWhiteSpace(char current);
 
     public abstract boolean isOperator(char current);
+
+    public abstract boolean isMinus(char current);
 }

@@ -8,6 +8,7 @@ public enum ErrorMessage {
     INVALID_OPERATE("유효하지 않은 사칙연산자입니다."),
     MISSING_WHITESPACE_BEFORE_OPERATOR("연산자 앞은 공백이어야 합니다."),
     INPUT_WHITESPACE("입력값에 공백이 있으면 안됩니다."),
+    INPUT_MINUS("입력값에 음수가 있습니다."),
     DIVIDE_NOT_ZERO("0으로 나눌 수 없습니다."),
     ;
 

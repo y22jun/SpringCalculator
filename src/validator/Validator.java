@@ -12,6 +12,7 @@ public class Validator {
         NotNullValidate(input);
         NotEmptyValidate(input);
         ConsecutiveSeparatorValidate(input);
+        NotInputMinusValidate(input);
         SeparatorValidate(input);
         EndOperatorValidate(input);
         WhitespaceBeforeOperatorValidate(input);
@@ -36,6 +37,15 @@ public class Validator {
             char next = input.charAt(i + 1);
             if(customCharacterValidator.isSeparator(current) && customCharacterValidator.isSeparator(next)) {
                 throw new IllegalArgumentException(CONSECUTIVE_SEPARATOR.getMessage());
+            }
+        }
+    }
+
+    private void NotInputMinusValidate(String input) {
+        for(int i = 0; i < input.length() - 2; i++) {
+            char current = input.charAt(i);
+            if(customCharacterValidator.isMinus(current)) {
+                throw new IllegalArgumentException(INPUT_MINUS.getMessage());
             }
         }
     }

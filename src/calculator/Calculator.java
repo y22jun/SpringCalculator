@@ -17,7 +17,7 @@ public class Calculator {
         List<Double> numbers = separatorParser.parserSeparator(input);
         double result = numbers.get(0);
 
-        Operator checkOperator = allOperator.getOperator(operator);
+        Operator checkOperator = Operator.fromOperator(operator);
 
         for (int i = 1; i < numbers.size(); i++) {
             double currentNumber = numbers.get(i);

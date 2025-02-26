@@ -13,6 +13,7 @@ public class Validator {
         NotEmptyValidate(input);
         ConsecutiveSeparatorValidate(input);
         NotInputMinusValidate(input);
+        NotInputDecimalPointValidate(input);
         SeparatorValidate(input);
         EndOperatorValidate(input);
         WhitespaceBeforeOperatorValidate(input);
@@ -46,6 +47,15 @@ public class Validator {
             char current = input.charAt(i);
             if(customCharacterValidator.isMinus(current)) {
                 throw new IllegalArgumentException(INPUT_MINUS.getMessage());
+            }
+        }
+    }
+
+    private void NotInputDecimalPointValidate(String input) {
+        for(int i = 0; i < input.length() - 2; i++) {
+            char current = input.charAt(i);
+            if(customCharacterValidator.isDecimalPoint(current)) {
+                throw new IllegalArgumentException(INPUT_DECIMAL_POINT.getMessage());
             }
         }
     }

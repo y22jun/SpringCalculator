@@ -9,6 +9,7 @@ public class CustomCharacterValidator extends CharacterValidator {
     private static final char MINUS = '-';
     private static final char MULTIPLY = '*';
     private static final char DIVIDE = '/';
+    private static final char DECIMAL_POINT = '.';
 
     public boolean isSeparator(char current) {
         return current == COLON || current == COMMA;
@@ -24,5 +25,9 @@ public class CustomCharacterValidator extends CharacterValidator {
 
     public boolean isMinus(char current) {
         return current == MINUS;
+    }
+
+    public boolean isDecimalPoint(char current) {
+        return current == DECIMAL_POINT;
     }
 }

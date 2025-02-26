@@ -9,6 +9,7 @@ public enum ErrorMessage {
     MISSING_WHITESPACE_BEFORE_OPERATOR("연산자 앞은 공백이어야 합니다."),
     INPUT_WHITESPACE("입력값에 공백이 있으면 안됩니다."),
     INPUT_MINUS("입력값에 음수가 있습니다."),
+    INPUT_DECIMAL_POINT("입력값에 소숫점이 있습니다."),
     DIVIDE_NOT_ZERO("0으로 나눌 수 없습니다."),
     ;
 

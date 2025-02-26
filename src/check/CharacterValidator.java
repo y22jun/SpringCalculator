@@ -8,4 +8,6 @@ public abstract class CharacterValidator {
     public abstract boolean isOperator(char current);
 
     public abstract boolean isMinus(char current);
+
+    public abstract boolean isDecimalPoint(char current);
 }

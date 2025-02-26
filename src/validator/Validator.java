@@ -16,8 +16,14 @@ public class Validator {
         WhitespaceBeforeOperatorValidate(input);
     }
 
+    private void NotNullValidate(String input) {
+        if(input == null) {
+            throw new IllegalArgumentException(INPUT_NULL.getMessage());
+        }
+    }
+
     private void NotEmptyValidate(String input) {
-        if(input == null || input.isEmpty()) {
+        if(input.isEmpty()) {
             throw new IllegalArgumentException(INPUT_EMPTY.getMessage());
         }
     }

@@ -12,6 +12,6 @@ public class Output {
     }
 
     private void printResult(CalculatorResult calculatorResult) {
-        System.out.println(calculatorResult.expressionResult() + " = " + calculatorResult.result());
+        System.out.println(calculatorResult.expressionResult() + " = " + calculatorResult.inputResult());
     }
 }

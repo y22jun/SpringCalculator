@@ -10,10 +10,17 @@ public record CalculatorResult(List<Double> numbers, char operator, double resul
         StringBuilder expressionResult = new StringBuilder();
         expressionResult.append(FIRST_INDEX);
         for(int i = 1; i < NUMBER_SIZE; i++) {
-            expressionResult.append(" ").append(operator()).append(" ").append(numbers().get(i)); //분리를 해서 더 단순하게 만들자
+            appendOperatorAndNumber(expressionResult, i);
         }
 
         return expressionResult.toString();
+    }
+
+    private void appendOperatorAndNumber(StringBuilder builder, int index) {
+        builder.append(" ")
+                .append(operator())
+                .append(" ")
+                .append(numbers().get(index));
     }
 
     public String inputResult() {

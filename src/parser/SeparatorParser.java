@@ -1,6 +1,5 @@
 package parser;
 
-import check.CharacterValidator;
 import check.CustomCharacterValidator;
 
 import java.util.ArrayList;

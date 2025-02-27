@@ -2,6 +2,7 @@ package check;
 
 public class CustomCharacterValidator extends CharacterValidator {
 
+    //열거형으로
     private static final char COLON = ':';
     private static final char COMMA = ',';
     private static final char SPACE = ' ';

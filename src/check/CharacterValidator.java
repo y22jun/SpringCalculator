@@ -11,3 +11,4 @@ public abstract class CharacterValidator {
 
     public abstract boolean isDecimalPoint(char current);
 }
+

@@ -6,7 +6,6 @@ import static exception.ErrorMessage.*;
 
 public class Validator {
 
-    //매직넘버로
     private final CustomCharacterValidator customCharacterValidator = new CustomCharacterValidator();
 
     public void AllValidate(String input) {
@@ -34,7 +33,8 @@ public class Validator {
     }
 
     private void ConsecutiveSeparatorValidate(String input) {
-        for (int i = 0; i < input.length() - 1; i++) {
+        final int OPERATOR_INDEX = input.length() - 1;
+        for (int i = 0; i < OPERATOR_INDEX; i++) {
             char current = input.charAt(i);
             char next = input.charAt(i + 1);
             if (customCharacterValidator.isSeparator(current) && customCharacterValidator.isSeparator(next)) {
@@ -44,7 +44,8 @@ public class Validator {
     }
 
     private void NotInputMinusValidate(String input) {
-        for (int i = 0; i < input.length() - 2; i++) {
+        final int BEFORE_WHITESPACE_INDEX = input.length() - 2;
+        for (int i = 0; i < BEFORE_WHITESPACE_INDEX; i++) {
             char current = input.charAt(i);
             if (customCharacterValidator.isMinus(current)) {
                 throw new IllegalArgumentException(INPUT_MINUS.getMessage());
@@ -53,7 +54,8 @@ public class Validator {
     }
 
     private void NotInputDecimalPointValidate(String input) {
-        for (int i = 0; i < input.length() - 2; i++) {
+        final int BEFORE_WHITESPACE_INDEX = input.length() - 2;
+        for (int i = 0; i < BEFORE_WHITESPACE_INDEX; i++) {
             char current = input.charAt(i);
             if (customCharacterValidator.isDecimalPoint(current)) {
                 throw new IllegalArgumentException(INPUT_DECIMAL_POINT.getMessage());
@@ -62,7 +64,8 @@ public class Validator {
     }
 
     private void SeparatorValidate(String input) {
-        for (int i = 0; i < input.length() - 2; i++) {
+        final int BEFORE_WHITESPACE_INDEX = input.length() - 2;
+        for (int i = 0; i < BEFORE_WHITESPACE_INDEX; i++) {
             char current = input.charAt(i);
             if (!Character.isDigit(current) && !customCharacterValidator.isSeparator(current) && !customCharacterValidator.isWhiteSpace(current)) {
                 throw new IllegalArgumentException(INVALID_SEPARATOR.getMessage());
@@ -71,21 +74,24 @@ public class Validator {
     }
 
     private void EndOperatorValidate(String input) {
-        char current = input.charAt(input.length() - 1);
+        final int OPERATOR_INDEX = input.length() - 1;
+        char current = input.charAt(OPERATOR_INDEX);
         if (!customCharacterValidator.isOperator(current)) {
             throw new IllegalArgumentException(INVALID_OPERATE.getMessage());
         }
     }
 
     private void WhitespaceBeforeOperatorValidate(String input) {
-        char current = input.charAt(input.length() - 2);
+        final int BEFORE_WHITESPACE_INDEX = input.length() - 2;
+        char current = input.charAt(BEFORE_WHITESPACE_INDEX);
         if (!customCharacterValidator.isWhiteSpace(current)) {
             throw new IllegalArgumentException(MISSING_WHITESPACE_BEFORE_OPERATOR.getMessage());
         }
     }
 
     private void NotWhitespaceInputValidate(String input) {
-        for (int i = 0; i < input.length() - 2; i++) {
+        final int BEFORE_WHITESPACE_INDEX = input.length() - 2;
+        for (int i = 0; i < BEFORE_WHITESPACE_INDEX; i++) {
             char current = input.charAt(i);
             if (customCharacterValidator.isWhiteSpace(current)) {
                 throw new IllegalArgumentException(INPUT_WHITESPACE.getMessage());

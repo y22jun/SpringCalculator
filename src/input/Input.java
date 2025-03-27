@@ -6,24 +6,26 @@ import java.util.Scanner;
 
 public class Input {
 
-    private String input;
-    private final Scanner scanner = new Scanner(System.in);
+    private static Scanner SCANNER;
+
+    private Input() {}
     private final Validator validator = new Validator();
 
-    private void readInput() {
-        input = scanner.nextLine();
+    private static Scanner getInstance() {
+        if (SCANNER == null) {
+            SCANNER = new Scanner(System.in);
+        }
+        return SCANNER;
     }
 
-    private void validateInput() {
-        validator.AllValidate(input);
+    public static String nextLine() {
+        return getInstance().nextLine();
     }
 
-    public void processInput() {
-        readInput();
-        validateInput();
-    }
-
-    public String getInput() {
-        return input;
+    public static void close() {
+        if (SCANNER != null) {
+            SCANNER.close();
+            SCANNER = null;
+        }
     }
 }

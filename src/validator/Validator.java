@@ -6,9 +6,9 @@ import static exception.ErrorMessage.*;
 
 public class Validator {
 
-    private final CustomCharacterValidator customCharacterValidator = new CustomCharacterValidator();
+    private static final CustomCharacterValidator customCharacterValidator = new CustomCharacterValidator();
 
-    public void AllValidate(String input) {
+    public static void AllValidate(String input) {
         NotNullValidate(input);
         NotEmptyValidate(input);
         ConsecutiveSeparatorValidate(input);
@@ -20,19 +20,19 @@ public class Validator {
         NotWhitespaceInputValidate(input);
     }
 
-    private void NotNullValidate(String input) {
+    private static void NotNullValidate(String input) {
         if (input == null) {
             throw new IllegalArgumentException(INPUT_NULL.getMessage());
         }
     }
 
-    private void NotEmptyValidate(String input) {
+    private static void NotEmptyValidate(String input) {
         if (input.isEmpty()) {
             throw new IllegalArgumentException(INPUT_EMPTY.getMessage());
         }
     }
 
-    private void ConsecutiveSeparatorValidate(String input) {
+    private static void ConsecutiveSeparatorValidate(String input) {
         final int OPERATOR_INDEX = input.length() - 1;
         for (int i = 0; i < OPERATOR_INDEX; i++) {
             char current = input.charAt(i);
@@ -43,7 +43,7 @@ public class Validator {
         }
     }
 
-    private void NotInputMinusValidate(String input) {
+    private static void NotInputMinusValidate(String input) {
         final int BEFORE_WHITESPACE_INDEX = input.length() - 2;
         for (int i = 0; i < BEFORE_WHITESPACE_INDEX; i++) {
             char current = input.charAt(i);
@@ -53,7 +53,7 @@ public class Validator {
         }
     }
 
-    private void NotInputDecimalPointValidate(String input) {
+    private static void NotInputDecimalPointValidate(String input) {
         final int BEFORE_WHITESPACE_INDEX = input.length() - 2;
         for (int i = 0; i < BEFORE_WHITESPACE_INDEX; i++) {
             char current = input.charAt(i);
@@ -63,7 +63,7 @@ public class Validator {
         }
     }
 
-    private void SeparatorValidate(String input) {
+    private static void SeparatorValidate(String input) {
         final int BEFORE_WHITESPACE_INDEX = input.length() - 2;
         for (int i = 0; i < BEFORE_WHITESPACE_INDEX; i++) {
             char current = input.charAt(i);
@@ -73,7 +73,7 @@ public class Validator {
         }
     }
 
-    private void EndOperatorValidate(String input) {
+    private static void EndOperatorValidate(String input) {
         final int OPERATOR_INDEX = input.length() - 1;
         char current = input.charAt(OPERATOR_INDEX);
         if (!customCharacterValidator.isOperator(current)) {
@@ -81,7 +81,7 @@ public class Validator {
         }
     }
 
-    private void WhitespaceBeforeOperatorValidate(String input) {
+    private static void WhitespaceBeforeOperatorValidate(String input) {
         final int BEFORE_WHITESPACE_INDEX = input.length() - 2;
         char current = input.charAt(BEFORE_WHITESPACE_INDEX);
         if (!customCharacterValidator.isWhiteSpace(current)) {
@@ -89,7 +89,7 @@ public class Validator {
         }
     }
 
-    private void NotWhitespaceInputValidate(String input) {
+    private static void NotWhitespaceInputValidate(String input) {
         final int BEFORE_WHITESPACE_INDEX = input.length() - 2;
         for (int i = 0; i < BEFORE_WHITESPACE_INDEX; i++) {
             char current = input.charAt(i);

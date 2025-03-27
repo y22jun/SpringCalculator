@@ -9,7 +9,6 @@ public class Input {
     private static Scanner SCANNER;
 
     private Input() {}
-    private final Validator validator = new Validator();
 
     private static Scanner getInstance() {
         if (SCANNER == null) {
@@ -19,7 +18,11 @@ public class Input {
     }
 
     public static String nextLine() {
-        return getInstance().nextLine();
+        String input = getInstance().nextLine();
+
+        Validator.AllValidate(input);
+
+        return input;
     }
 
     public static void close() {
